@@ -1,5 +1,8 @@
 This project is to created Producer and Consumer to send and receive message from the topic using Apache Kafka
 
+Currently, The HelloProducer application writes data on the topic when receive the message via Rest Endpoint and HelloConsumer consumes data from the same topic.
+
+
 About Apache Kafka: https://medium.com/analytics-vidhya/apache-kafka-architecture-getting-started-with-apache-kafka-771d69ac6cef
 
 Steps to Follow for Running this project:
@@ -13,7 +16,7 @@ To setup Maven: https://medium.com/@aman.sharma163/maven-installation-on-windows
 
 To setup Apache Kafka:
 - Download the latest tar.gz from this link: https://kafka.apache.org/quickstart
-- Unpack the package : tar -xzf <your downloaded kafka file>
+- Unpack the package : tar -xzf "your downloaded kafka file" (without quote)
 - Rename the folder to Kafka (Not a mandatory step but it short the path)
 - move the folder to C:
   - Inside your kafka, create directory kafka-logs and zookeeper-data
@@ -30,13 +33,24 @@ To setup Apache Kafka:
 
   ![image](https://user-images.githubusercontent.com/24723794/163668948-ee8167a3-7cba-4fef-b2bf-d3daa9c94153.png)
 
-Your Apache Kafka is up and Running !! 😊
+Your Apache Kafka is now Up and Running !! 😊
   
-Now, Clone the Project Open HelloProducer and HelloConsumer in different Intellij Window.
-  - Run HelloProducer Application, 
-  - Run HelloConsumer Application
+Now, Clone the Project and Open both HelloProducer and HelloConsumer in different Intellij/Eclipse IDE.
+  - perform maven build from terminal: **mvn spring-boot:run** for HelloProducer Application, 
+  - perform maven build from terminal: **mvn spring-boot:run** for HelloConsumer Application
 
-You can also test the message produced by producer on the topic by executing below command in your kafka folder. Open Command Line and execute: 
-  **.\bin\windows\kafka-console-consumer.bat -bootstrap-server 127.0.0.1:9092 -topic <topic name> -group first_app**
+Now send the POST request with the following details:
+ - Request Url: localhost:8080/kafka/producer
+ - Request Body: {"name":"Apache Kafka", "message":"This is the message"}
 
-  
+You can also test the message written by producer on the topic by executing below command in your kafka folder. Open Command Line and execute: 
+ - **.\bin\windows\kafka-console-consumer.bat -bootstrap-server 127.0.0.1:9092 -topic 'topic name'(without quote) -group first_app**
+Now, send the message on the topic, you will find the output as shown below:
+
+![image](https://user-images.githubusercontent.com/24723794/163681341-11c39b54-fa02-4c43-a775-63e810c56b49.png)
+
+
+We can also monitor the Application using **Jconsole** when our application is running as shown below
+
+![image](https://user-images.githubusercontent.com/24723794/163681512-65abc26d-f385-4f16-bb45-a881c957e321.png)
+

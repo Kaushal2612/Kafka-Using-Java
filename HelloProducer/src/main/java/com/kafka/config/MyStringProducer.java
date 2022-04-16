@@ -1,5 +1,6 @@
 package com.kafka.config;
 
+import com.kafka.constant.AppConstant;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
@@ -8,20 +9,23 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
+/**
+ * This class is to produce String message on the topic
+ */
 @Configuration
-public class MyProducer {
+public class MyStringProducer {
 
-    public static void run() {
+    public void run() {
         // Creating Properties
         Properties properties = getProducerConfiguration();
         // Creating Producer
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(properties);
         // Creating Producer Record
-        ProducerRecord<String, String> record = new ProducerRecord<>("first2", "Hello User !!");
+        ProducerRecord<String, String> record = new ProducerRecord<>(AppConstant.STRING_TOPIC, "Hello User !!");
         // sending the data
         kafkaProducer.send(record, new Callback() {
             public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                Logger logger= LoggerFactory.getLogger(MyProducer.class);
+                Logger logger= LoggerFactory.getLogger(MyStringProducer.class);
                 if (e== null) {
                     logger.info("Successfully received the details as: \n" +
                             "Topic:" + recordMetadata.topic() + "\n" +
@@ -44,7 +48,7 @@ public class MyProducer {
      * Set the properties configuration
      * @return
      */
-    private static Properties getProducerConfiguration () {
+    private Properties getProducerConfiguration () {
         String bootstrapServers = "127.0.0.1:9092";
         Properties props = new Properties();
         props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);

@@ -1,7 +1,6 @@
-This project is to created Producer and Consumer to send and receive message from the topic using Apache Kafka
+In this project, Producer and Consumer to writes and read messages from the topic using Apache Kafka.
 
-Currently, The HelloProducer application writes data on the topic when receive the message via Rest Endpoint and HelloConsumer consumes data from the same topic.
-
+Currently, The HelloProducer Application produces data on the topic _json_ when receive the message via Rest Endpoint and HelloConsumer consumes data from the same topic.
 
 About Apache Kafka: https://medium.com/analytics-vidhya/apache-kafka-architecture-getting-started-with-apache-kafka-771d69ac6cef
 
@@ -18,7 +17,7 @@ To setup Apache Kafka:
 - Download the latest tar.gz from this link: https://kafka.apache.org/quickstart
 - Unpack the package : tar -xzf "your downloaded kafka file" (without quote)
 - Rename the folder to Kafka (Not a mandatory step but it short the path)
-- move the folder to C:
+- Move the folder to C:
   - Inside your kafka, create directory kafka-logs and zookeeper-data
   - Open config/zookeeper.properties and modify dataDir -> dataDir=C:/kafka/zookeeper-data and save it
   - Open config/server.properties and modify log.dir -> log.dirs=C:/kafka/kafka-logs and save it

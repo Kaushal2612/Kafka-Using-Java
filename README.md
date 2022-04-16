@@ -36,7 +36,7 @@ Now, Clone the Project Open HelloProducer and HelloConsumer in different Intelli
   - Run HelloProducer Application, 
   - Run HelloConsumer Application
 
-You can also test the message produced by producer on the topic by executing below command in your kafka folder: 
+You can also test the message produced by producer on the topic by executing below command in your kafka folder. Open Command Line and execute: 
   **.\bin\windows\kafka-console-consumer.bat -bootstrap-server 127.0.0.1:9092 -topic <topic name> -group first_app**
 
   

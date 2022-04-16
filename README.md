@@ -16,21 +16,20 @@ To setup Maven: https://medium.com/@aman.sharma163/maven-installation-on-windows
 To setup Apache Kafka:
 - Download the latest tar.gz from this link: https://kafka.apache.org/quickstart
 - Unpack the package : tar -xzf "your downloaded kafka file" (without quote)
-- Rename the folder to Kafka (Not a mandatory step but it short the path)
-- Move the folder to C:
-  - Inside your kafka, create directory kafka-logs and zookeeper-data
-  - Open config/zookeeper.properties and modify dataDir -> dataDir=C:/kafka/zookeeper-data and save it
-  - Open config/server.properties and modify log.dir -> log.dirs=C:/kafka/kafka-logs and save it
+- Rename the folder to Kafka (Not a mandatory step but it shorten the path)
+- Move the folder to your suitable location. (If we want to have it specific location, as it's not a mandatory step) 
+- Inside your kafka, create directory kafka-logs and zookeeper-data
+![image](https://user-images.githubusercontent.com/24723794/163668640-cc63f94c-3891-4b5c-a08b-4e83e2acd982.png)
+- Open config/zookeeper.properties and modify dataDir -> dataDir=C:/kafka/zookeeper-data and save it
+- Open config/server.properties and modify log.dir -> log.dirs=C:/kafka/kafka-logs and save it
 
-  ![image](https://user-images.githubusercontent.com/24723794/163668640-cc63f94c-3891-4b5c-a08b-4e83e2acd982.png)
+- To start Zookeeper, go to your Kafka directory, open another cmd and execute **.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties** 
 
- - Go to your Kafka directory, open another cmd and execute **.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties** to start Zookeeper 
+![image](https://user-images.githubusercontent.com/24723794/163668874-1c7ded34-dd00-4228-8158-3b5429c93789.png)
 
-  ![image](https://user-images.githubusercontent.com/24723794/163668874-1c7ded34-dd00-4228-8158-3b5429c93789.png)
-  
- - Go to your Kafka directory, open cmd and execute **.\bin\windows\kafka-server-start.bat .\config\server.properties**  to start kafka server
+- To start Apache Kafka server, go to your Kafka directory, open cmd and execute **.\bin\windows\kafka-server-start.bat .\config\server.properties** 
 
-  ![image](https://user-images.githubusercontent.com/24723794/163668948-ee8167a3-7cba-4fef-b2bf-d3daa9c94153.png)
+![image](https://user-images.githubusercontent.com/24723794/163668948-ee8167a3-7cba-4fef-b2bf-d3daa9c94153.png)
 
 Your Apache Kafka is now Up and Running !! 😊
   
@@ -38,7 +37,7 @@ Now, Clone the Project and Open both HelloProducer and HelloConsumer in differen
   - perform maven build from terminal: **mvn spring-boot:run** for HelloProducer Application, 
   - perform maven build from terminal: **mvn spring-boot:run** for HelloConsumer Application
 
-Now send the POST request with the following details:
+Now send the POST Request with the following details:
  - Request Url: localhost:8080/kafka/producer
  - Request Body: {"name":"Apache Kafka", "message":"This is the message"}
 

@@ -1,6 +1,4 @@
-In this project, Producer and Consumer to writes and read messages from the Kafka Topic using Apache Kafka.
-
-Currently, When the Rest Endpoint being called, Producer Application writes data on the topic _json_ and ConsumerApplication read data from the same topic.
+In this project, When the Rest Endpoint being called, Producer Application writes data on the Kafka Topic named as _json_ and ConsumerApplication reads data from the same topic.
 
 About Apache Kafka: https://medium.com/analytics-vidhya/apache-kafka-architecture-getting-started-with-apache-kafka-771d69ac6cef
 

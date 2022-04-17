@@ -13,7 +13,7 @@ import java.util.Properties;
  * This class is to produce String message on the topic
  */
 @Configuration
-public class MyStringProducer {
+public class StringProducer {
 
     public void run() {
         // Creating Properties
@@ -25,7 +25,7 @@ public class MyStringProducer {
         // sending the data
         kafkaProducer.send(record, new Callback() {
             public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                Logger logger= LoggerFactory.getLogger(MyStringProducer.class);
+                Logger logger= LoggerFactory.getLogger(StringProducer.class);
                 if (e== null) {
                     logger.info("Successfully received the details as: \n" +
                             "Topic:" + recordMetadata.topic() + "\n" +

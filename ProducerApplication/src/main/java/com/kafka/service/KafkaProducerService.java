@@ -1,15 +1,12 @@
 package com.kafka.service;
 
-import com.kafka.config.MyStringProducer;
+import com.kafka.config.StringProducer;
 import com.kafka.constant.AppConstant;
 import com.kafka.model.KafkaProducerObject;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +34,7 @@ public class KafkaProducerService {
 
         kafkaProducer.send(record, new Callback() {
             public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                Logger logger= LoggerFactory.getLogger(MyStringProducer.class);
+                Logger logger= LoggerFactory.getLogger(StringProducer.class);
                 if (e== null) {
                     logger.info("Successfully received the details as: \n" +
                             "Topic:" + recordMetadata.topic() + "\n" +

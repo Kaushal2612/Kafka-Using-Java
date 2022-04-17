@@ -8,7 +8,6 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.Duration;
@@ -19,12 +18,12 @@ import java.util.Properties;
  * This class consumes the String message from the topic
  */
 @Configuration
-public class MyStringConsumer {
+public class StringConsumer {
 
     public static void run() {
 
         String myTopic = AppConstant.STRING_TOPIC;
-        Logger logger = LoggerFactory.getLogger(MyStringConsumer.class.getName());
+        Logger logger = LoggerFactory.getLogger(StringConsumer.class.getName());
         // Create Consumer Properties
         Properties properties = getConsumerConfiguration();
         //creating consumer

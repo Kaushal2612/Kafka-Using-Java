@@ -1,6 +1,6 @@
-In this project, Producer and Consumer to writes and read messages from the topic using Apache Kafka.
+In this project, Producer and Consumer to writes and read messages from the Kafka Topic using Apache Kafka.
 
-Currently, The HelloProducer Application produces data on the topic _json_ when receive the message via Rest Endpoint and HelloConsumer consumes data from the same topic.
+Currently, When the Rest Endpoint being called, Producer Application writes data on the topic _json_ and ConsumerApplication read data from the same topic.
 
 About Apache Kafka: https://medium.com/analytics-vidhya/apache-kafka-architecture-getting-started-with-apache-kafka-771d69ac6cef
 
@@ -33,9 +33,10 @@ To setup Apache Kafka:
 
 Your Apache Kafka is now Up and Running !! 😊
   
-Now, Clone the Project and Open both HelloProducer and HelloConsumer in different Intellij/Eclipse IDE.
-  - perform maven build from terminal: **mvn spring-boot:run** for HelloProducer Application, 
-  - perform maven build from terminal: **mvn spring-boot:run** for HelloConsumer Application
+Now, Clone the Project and Open Producer Application and Consumer Application in different Intellij/Eclipse IDE.
+Download the maven dependency for both the project via below command:
+  - perform maven build from terminal: **mvn spring-boot:run** for Producer Application, 
+  - perform maven build from terminal: **mvn spring-boot:run** for Consumer Application
 
 Now send the POST Request with the following details:
  - Request Url: localhost:8080/kafka/producer

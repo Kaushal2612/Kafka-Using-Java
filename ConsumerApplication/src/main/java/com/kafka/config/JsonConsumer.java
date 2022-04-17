@@ -21,7 +21,7 @@ import java.util.Properties;
  * This class consumes data from the json topic
  */
 @Configuration
-public class MyJsonConsumer {
+public class JsonConsumer {
 
     @Value("kafka.topic")
     public static String topic;
@@ -29,7 +29,7 @@ public class MyJsonConsumer {
     public static void run() {
 
         String myTopic = AppConstant.JSON_TOPIC;
-        Logger logger = LoggerFactory.getLogger(MyJsonConsumer.class.getName());
+        Logger logger = LoggerFactory.getLogger(JsonConsumer.class.getName());
         // Create Consumer Properties
         Properties properties = getConsumerConfiguration();
         //creating consumer
